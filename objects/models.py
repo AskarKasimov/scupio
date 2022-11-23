@@ -6,8 +6,7 @@ class Object(models.Model):
     field = models.IntegerField(verbose_name='Номер месторождения')
     income_date = models.DateTimeField(auto_now_add=True, verbose_name='Время появления')
 
-    def __str__(self) -> str:
-        return self.name
+    
     
 
 
@@ -18,8 +17,7 @@ class Lab(models.Model):
     operator = models.IntegerField(verbose_name='Номер оператора')
     task = models.IntegerField(verbose_name='Номер работы')
 
-    def __str__(self) -> str:
-        return self.name
+    
 
 
 class LabObject(models.Model):
@@ -37,8 +35,6 @@ class LabObject(models.Model):
         on_delete=models.CASCADE
     )
 
-    def __str__(self) -> str:
-        return (self.object.name, self.laboratory.name) 
 
 
 class Field(models.Model):
@@ -51,8 +47,7 @@ class Field(models.Model):
     )
     name = models.CharField(max_length=200, verbose_name='Название скважины')
 
-    def __str__(self) -> str:
-        return self.name
+    
 
 
 class Well(models.Model):
@@ -65,8 +60,7 @@ class Well(models.Model):
     )
     name = models.CharField(max_length=200, verbose_name='Название пласта')
 
-    def __str__(self) -> str:
-        return self.name
+    
 
 
 class Layer(models.Model):
@@ -78,8 +72,7 @@ class Layer(models.Model):
     )
     name = models.CharField(max_length=200, verbose_name='Название пласта')
 
-    def __str__(self) -> str:
-        return self.name
+    
 
 
 class Task(models.Model):
@@ -92,5 +85,4 @@ class Task(models.Model):
     type = models.IntegerField(verbose_name='Тип работы')
     result = models.CharField(max_length=200, verbose_name='Результат работы')
 
-    def __str__(self) -> str:
-        return self.name
+    

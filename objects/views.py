@@ -5,6 +5,6 @@ from .models import *
 def index(request):
     object = Object.objects.select_related().all()
     context = {
-        'subjects': object,
+        'objects': object,
     }
     return render(request, 'objects/index.html', context)
