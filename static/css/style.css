@@ -224,32 +224,41 @@ input[type=text]::placeholder {
 }
 
 .nav-item:hover .flask-anim {
-    animation: flask 1s;
+    animation: flask .5s;
 }
 
 @keyframes flask {
     from {
-        stroke-width: 0px;
-        transform: translateY(40px);
-    }
-    50% {
-        stroke-width: 20px;
         transform: translateY(0px);
     }
+    50% {
+        transform: translateY(20px);
+    }
     to {
-        stroke-width: 0px;
-        transform: translateY(40px);
+        transform: translateY(0px);
+    }
+}
+
+.nav-item:hover .research {
+    animation: res .5s;
+}
+
+
+@keyframes res {
+    from {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(7px);
+    }
+    to {
+        transform: translateY(0px);
     }
 }
 
 .nav-item:hover .labs {
     animation: lab .5s;
 }
-
-.nav-item:hover .research {
-    animation: lab .5s;
-}
-
 
 @keyframes lab {
     from {
@@ -262,6 +271,7 @@ input[type=text]::placeholder {
         transform: translateY(0px);
     }
 }
+
 
 hr.solid {
     flex: 1 1 0px;
