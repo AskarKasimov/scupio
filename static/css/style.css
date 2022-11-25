@@ -34,8 +34,10 @@ a {
     display: inline-block;
 }
 
-a:visited {
-    color: inherit;
+a,
+a:visited,
+a:active {
+    color: #000000;
 }
 
 svg,
@@ -299,7 +301,7 @@ hr.solid {
     justify-content: flex-start;
     gap: .8rem;
     width: 100%;
-    max-height: 33vh;
+    max-height: 50vh;
     overflow-y: auto;
 }
 
