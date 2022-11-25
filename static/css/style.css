@@ -78,6 +78,9 @@ img {
 
     width: fit-content;
     color: #FFFFFF;
+}
+
+h2 {
     margin: 0;
 }
 
@@ -190,6 +193,7 @@ input[type=text]::placeholder {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 1rem;
     /* border: 1px solid #FFFFFF; */
 }
 
@@ -207,6 +211,56 @@ input[type=text]::placeholder {
 
 .nav-item svg {
     fill: #FFFFFF;
+}
+
+.flask-nav svg path,
+.flask-nav svg line {
+    stroke: #FFFFFF;
+}
+
+.nav-item:hover .flasks path,
+.nav-item:hover .flasks line {
+    stroke: rgba(240, 188, 94, 0.98);
+}
+
+.nav-item:hover .flask-anim {
+    animation: flask 1s;
+}
+
+@keyframes flask {
+    from {
+        stroke-width: 0px;
+        transform: translateY(40px);
+    }
+    50% {
+        stroke-width: 20px;
+        transform: translateY(0px);
+    }
+    to {
+        stroke-width: 0px;
+        transform: translateY(40px);
+    }
+}
+
+.nav-item:hover .labs {
+    animation: lab .5s;
+}
+
+.nav-item:hover .research {
+    animation: lab .5s;
+}
+
+
+@keyframes lab {
+    from {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    to {
+        transform: translateY(0px);
+    }
 }
 
 hr.solid {
