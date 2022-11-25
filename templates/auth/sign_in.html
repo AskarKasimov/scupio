@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="title">Вход</h1>
+<form class="auth">
+    <input type="email" placeholder="Почта" required/>
+    <input type="password" placeholder="Пароль" required/>
+    <input class="submit" type="submit" value="Войти" />
+</form>
+<p class="or">или</p>
+<a class="go-auth" href="/sign-up">Зарегестрироваться</a>
+{% endblock content %}

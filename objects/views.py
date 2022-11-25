@@ -36,3 +36,9 @@ class ObjectList(generics.ListAPIView):
 class ObjectDetail(generics.ListAPIView):
     queryset = LabObject.objects.all()
     serializer_class = serializers.ObjectDetailSerializer
+
+def sign_in(request):
+    return render(request, 'auth/sign_in.html')
+
+def sign_up(request):
+    return render(request, 'auth/sign_up.html')
