@@ -1,14 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-    <p>Поиск</p>
-    {% for object in objects %}
-    <p>{{ object.name }} <a href="object/{{ object.id }}">Ссылка</a></p>
-    <p>Дата поступления в лабораторию: {{ object.income_date|date:'d.m.Y' }}</p>
-    {% endfor %}
-    
-    </p>
-</div>
-
+<form>
+    <label for="search">Поиск образцов</label>
+    <input name="search" type="text" placeholder="№">
+</form>
+{% block results %}
+{% endblock %}
 
 {% endblock %}
