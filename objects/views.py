@@ -3,6 +3,7 @@ from .models import *
 from rest_framework import generics
 from . import serializers
 from rest_framework.decorators import api_view
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -26,6 +27,9 @@ def object_detail(request, object_id):
         'tasks': object.lab_object.all(),
     }
     return render(request, 'objects/object_detail.html', context)
+
+def research_list(reques):
+    return HttpResponseRedirect("/sign-in")
 
 
 class ObjectList(generics.ListAPIView):
