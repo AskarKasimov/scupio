@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <p>Поиск</p>
+    {% for lab in labs %}
+    <p>Лаборатория №{{ lab.name }}</p>
+
+    {% endfor %}
+    
+    </p>
+</div>
+
+
+{% endblock %}

@@ -1,9 +1,14 @@
-<h1>Объекты</h1>
-{% for object in objects %}
-    <p>{{ object.name }}</p>
-    <p>{{ object.income_date }}</p>
-    <p>{{ object.oilfield }}</p> 
-    <p>{{ object.oilfield.well }}</p>
-    <p>{{ object.oilfield.well.layer }}</p>
-    <br>
-{% endfor %} 
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <p>Поиск</p>
+    {% for object in objects %}
+    <p>{{ object.name }} <a href="object/{{ object.id }}">Ссылка</a></p>
+    <p>Дата поступления в лабораторию: {{ object.income_date|date:'d.m.Y' }}</p>
+    {% endfor %}
+    
+    </p>
+</div>
+
+
+{% endblock %}

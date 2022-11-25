@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <p>Проба №{{ tasks.0.object.name}}</p>
+    <iframe src="https://giphy.com/embed/VbnUQpnihPSIgIXuZv" width="30%" height="40%" frameBorder="2" class="giphy-embed" allowFullScreen></iframe>
+    <p>Дата поступления в лабораторию: {{ tasks.0.object.income_date|date:'d.m.Y' }}</p>
+    <p>Дата отбора: {{ tasks.0.object.date_selection|date:'d.m.Y' }}</p>
+    <p>Месторождение: {{ tasks.0.object.oilfield.name }}</p>
+    <p>Название породы: {{ tasks.0.object.rock_name }}</p>
+    <p>Дата начала анализа: {{ tasks.0.start_date|date:'d.m.Y H:i' }}</p>
+    <p>Место хранения: Лаборатория №{{ tasks.0.laboratory.name }}</p>
+    <p>Результаты: 
+        {% for task in tasks %}
+        <br>
+        {{ task.task.result }}
+        {% endfor %}
+    </p>
+</div>
+
+
+{% endblock %}

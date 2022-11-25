@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'objects.apps.ObjectsConfig'
+    'objects.apps.ObjectsConfig',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'scupio.wsgi.application'
+
 
 
 # Database
