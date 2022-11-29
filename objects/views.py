@@ -3,7 +3,6 @@ from .models import *
 from django.http import HttpResponseRedirect
 
 
-
 def index(request):
     object = Object.objects.select_related().all()
     context = {
@@ -25,7 +24,6 @@ def object_detail(request, object_id):
         'tasks': object.lab_object.all(),
     }
     return render(request, 'objects/object_detail.html', context)
-
 
 def sign_in(request):
     return render(request, 'auth/sign_in.html')
