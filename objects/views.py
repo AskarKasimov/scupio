@@ -45,6 +45,6 @@ def search_result(request):
     }
     return render(request, 'objects/index.html', context)
 
-def research_list(reques):
+def research_list(request):
     return HttpResponseRedirect("/sign-in")
 
