@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
-from rest_framework import generics
-from . import serializers
-from rest_framework.decorators import api_view
+from django.http import HttpResponseRedirect
+
 
 
 def index(request):
@@ -13,7 +12,7 @@ def index(request):
     return render(request, 'objects/index.html', context)
 
 def labs_list(request):
-    labs = Lab.objects.select_related().all()
+    labs = Lab.objects.select_related().distinct()
     context = {
         'labs': labs,
     }
@@ -28,17 +27,24 @@ def object_detail(request, object_id):
     return render(request, 'objects/object_detail.html', context)
 
 
-class ObjectList(generics.ListAPIView):
-    queryset = Object.objects.all()
-    serializer_class = serializers.ObjectSerializer
-
-
-class ObjectDetail(generics.ListAPIView):
-    queryset = LabObject.objects.all()
-    serializer_class = serializers.ObjectDetailSerializer
-
 def sign_in(request):
     return render(request, 'auth/sign_in.html')
 
 def sign_up(request):
     return render(request, 'auth/sign_up.html')
+
+def search_result(request):
+    search_query = request.GET.get('search', '')
+    if search_query:
+        objects = Object.objects.filter(name__icontains=search_query)
+    else:
+        objects = Object.objects.all()
+
+    context = {
+        'objects': object,
+    }
+    return render(request, 'objects/index.html', context)
+
+def research_list(reques):
+    return HttpResponseRedirect("/sign-in")
+

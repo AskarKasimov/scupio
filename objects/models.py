@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.utils.timezone import now
 
 User = get_user_model()
 
@@ -65,6 +64,7 @@ class Object(models.Model):
     income_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата поступления в лабораторию')
     date_selection = models.DateTimeField(verbose_name='Дата отбора пробы')
     rock_name = models.CharField(max_length=200, verbose_name='Название породы')
+    link_verge3d = models.CharField(max_length=200, verbose_name='Ссылка на 3D Модель')
 
 
     class Meta:

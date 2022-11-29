@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block title %}
+    Вход
+{% endblock %}
 {% block content %}
 <h1 class="title">Вход</h1>
 <form class="auth">
@@ -7,5 +10,5 @@
     <input class="submit" type="submit" value="Войти" />
 </form>
 <p class="or">или</p>
-<a class="go-auth" href="/sign-up">Зарегестрироваться</a>
+<a class="go-auth" href="/sign-up">Зарегистрироваться</a>
 {% endblock content %}
