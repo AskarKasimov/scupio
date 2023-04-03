@@ -3,17 +3,18 @@
 Лаборатории
 {% endblock %}
 {% block content %}
-<form>
+<form action="search_lab" method="post">
     <label for="search">Поиск лабораторий</label>
     <input id="search" name="search" type="text" placeholder="Введите №">
     <input type="submit" class="submit" value="Найти">
 </form>
 <div class="list">
-    {% for lab in labs %}
-    <div class="lab-item">
+ {% for lab in labs %}
+    <a href="{{ lab.name }}" class="sample-item">
         <h3><span style="font-size: 16px;">№</span>{{ lab.name }}</h3>
-    </div>
     {% endfor %}
+    </a>
 </div>
+
 
 {% endblock %}

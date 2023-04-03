@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.http import HttpResponseRedirect
-
+from django.contrib.auth.models import User
 
 def index(request):
     object = Object.objects.select_related().all()
@@ -25,23 +25,55 @@ def object_detail(request, object_id):
     }
     return render(request, 'objects/object_detail.html', context)
 
+
 def sign_in(request):
+
     return render(request, 'auth/sign_in.html')
+
 
 def sign_up(request):
     return render(request, 'auth/sign_up.html')
 
-def search_result(request):
-    search_query = request.GET.get('search', '')
-    if search_query:
-        objects = Object.objects.filter(name__icontains=search_query)
-    else:
-        objects = Object.objects.all()
 
+def try_sign_up(request):
+    print(1)
+    email = request.request.POST.get('email')
+    password = request.request.POST.get('password')
+    print(email, password)
+  #  return render(request, 'auth/sign_up.html')
+
+
+def lab_detail(request, lab_id):
+    lab = get_object_or_404(Lab, name=lab_id)
+    print(lab)
+    context = {
+        'lab': lab
+    }
+    return render(request, 'objects/lab_detail.html', context)
+
+
+def lab_search(request):
+    a = request.POST.get('search')
+    lab = get_object_or_404(Lab, name=a)
+    context = {
+        'lab': lab
+    }
+    return render(request, 'objects/lab_detail.html', context)
+
+def search_result(request):
+
+
+    a = request.POST.get('search')
+
+    object = get_object_or_404(Object, name=a)
+    print(3)
+    print(object.lab_object.all()[0].object.rock_name)
     context = {
         'objects': object,
+        'tasks': object.lab_object.all()
     }
-    return render(request, 'objects/index.html', context)
+    print(5)
+    return render(request, 'objects/object_detail.html', context)
 
 def research_list(request):
     return HttpResponseRedirect("/sign-in")

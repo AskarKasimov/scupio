@@ -46,7 +46,7 @@ class OilField(models.Model):
 class Lab(models.Model):
     #id = models.AutoField(primary_key=True)
     name = models.IntegerField(verbose_name='Номер лаборатории')
-
+    address = models.CharField(max_length=200, verbose_name='Адрес лаборатории')
     def __str__(self) -> str:
         return str(self.name)
 
