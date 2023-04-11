@@ -5,9 +5,9 @@
 {% block content %}
 <h1 class="title">Регистрация</h1>
       <form action="try-sign-up" class="auth" method="post">
-        <input type="text" placeholder="ФИО" required/>
-        <input id="email" type="email" placeholder="Почта" required/>
-        <input id="password" type="password" placeholder="Пароль" required/>
+        <input id="name" name="name" type="text" placeholder="ФИО" required/>
+        <input id="email" name="email" type="email" placeholder="Почта" required/>
+        <input id="password" name="password" type="password" placeholder="Пароль" required/>
         <input class="submit" type="submit" value="Зарегистрироваться" />
       </form>
       <p class="or">или</p>
