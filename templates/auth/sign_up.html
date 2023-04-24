@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
+{% block title %}
+Регистрация
+{% endblock %}
 {% block content %}
 <h1 class="title">Регистрация</h1>
-      <form class="auth">
-        <input type="text" placeholder="ФИО" required/>
-        <input type="email" placeholder="Почта" required/>
-        <input type="password" placeholder="Пароль" required/>
+      <form action="try-sign-up" class="auth" method="post">
+        <input id="name" name="name" type="text" placeholder="ФИО" required/>
+        <input id="email" name="email" type="email" placeholder="Почта" required/>
+        <input id="password" name="password" type="password" placeholder="Пароль" required/>
         <input class="submit" type="submit" value="Зарегистрироваться" />
       </form>
       <p class="or">или</p>
