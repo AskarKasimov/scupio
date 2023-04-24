@@ -4,9 +4,9 @@
 {% endblock %}
 {% block content %}
 <h1 class="title">Вход</h1>
-<form class="auth">
-    <input type="email" placeholder="Почта" required/>
-    <input type="password" placeholder="Пароль" required/>
+<form action="try-sign-in" class="auth" method="post">
+    <input type= "text" name="email" placeholder="Почта" required/>
+    <input name="password" type="password" placeholder="Пароль" required/>
     <input class="submit" type="submit" value="Войти" />
 </form>
 <p class="or">или</p>
