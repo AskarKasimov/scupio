@@ -3,11 +3,17 @@
 Образцы
 {% endblock %}
 {% block content %}
-<form>
+<form action="search_obj" method="post">
     <label for="search">Поиск образцов</label>
-    <input name="search" type="text" placeholder="№">
+    <input id="search" name="search" type="text" placeholder="Введите №">
+    <input type="submit" class="submit" value="Найти">
 </form>
-{% block results %}
-{% endblock %}
-
+<div class="list">
+    {% for object in objects %}
+    <a href="object/{{ object.id }}" class="sample-item">
+        <h3><span style="font-size: 16px;">№</span>{{ object.name }}</h3>
+        <h4>{{ object.income_date|date:'d.m.Y' }}</h4>
+    {% endfor %}
+    </a>
+</div>
 {% endblock %}

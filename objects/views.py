@@ -95,6 +95,7 @@ def lab_search(request):
     }
     return render(request, 'objects/lab_detail.html', context)
 
+
 @login_required
 def search_result(request):
 
@@ -110,6 +111,7 @@ def search_result(request):
     }
     print(5)
     return render(request, 'objects/object_detail.html', context)
+
 
 def research_list(request):
     return HttpResponseRedirect("/sign-in")
