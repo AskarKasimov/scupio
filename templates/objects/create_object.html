@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+Создание объекта
+{% endblock %}
+{% block content %}
+<form>
+    <label>Создание объекта</label>
+</form>
+<div class="list">
+    <form action="create-object-post" method="post">
+        <label for="number">Номер</label>
+        <input name="number" type="text">
+        <label for="field">Месторождение (номер)</label>
+        <input name="field" type="text">
+        <label for="date-create">Дата отбора</label>
+        <input name="date-create" type="text">
+        <label for="date-income">Дата поступления</label>
+        <input name="date-income" type="text">
+        <label for="rock">Порода</label>
+        <input name="rock" type="text">
+        <label for="diametr">Диаметр</label>
+        <input name="diametr" type="text">
+        <label for="water">Коэф. водоносыщенности</label>
+        <input name="water" type="text">
+        <label for="oil">Коэф. нефтенасыщенности</label>
+        <input name="oil" type="text">
+        <label for="gaz">Коэф. газонасыщенности</label>
+        <input name="gaz" type="text">
+        <label for="mineral">Минералогическая плотность</label>
+        <input name="mineral" type="text">
+        <label for="carbon">Коэф. карбонатности</label>
+        <input name="carbon" type="text">
+        <input type="submit" value="Создать" class="submit">
+    </form>
+</div>
+{% endblock %}

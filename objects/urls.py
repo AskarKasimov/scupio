@@ -7,6 +7,10 @@ urlpatterns = [
     path('', views.sign_in),
     path('index', views.index),
     path("search_obj", views.search_result),
+    path("create-object", views.create_object),
+    path("create-object-post", views.create_object_post),
+    path("create-lab", views.create_lab),
+    path("create-lab-post", views.create_lab_post),
 
     path("labs/search_lab", views.lab_search),
     path('labs/', views.labs_list),

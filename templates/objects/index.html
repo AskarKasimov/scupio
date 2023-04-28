@@ -9,11 +9,14 @@
     <input type="submit" class="submit" value="Найти">
 </form>
 <div class="list">
+    <a href="create-object" class="sample-item">
+        <h3>Создать объект</h3>
+    </a>
     {% for object in objects %}
     <a href="object/{{ object.id }}" class="sample-item">
         <h3><span style="font-size: 16px;">№</span>{{ object.name }}</h3>
         <h4>{{ object.income_date|date:'d.m.Y' }}</h4>
-    {% endfor %}
     </a>
+    {% endfor %}
 </div>
 {% endblock %}

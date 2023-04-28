@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+Создание лаборатории
+{% endblock %}
+{% block content %}
+<form>
+    <label>Создание лаборатории</label>
+</form>
+<div class="list">
+    <form action="create-lab-post" method="post">
+        <label for="number">Номер</label>
+        <input name="number" type="text">
+        <label for="number">Адрес</label>
+        <input name="number" type="text">
+        <input type="submit" value="Создать" class="submit">
+    </form>
+</div>
+{% endblock %}

@@ -26,6 +26,28 @@ def labs_list(request):
 
 
 @login_required
+def create_object(request):
+    return render(request, 'objects/create_object.html')
+
+
+@login_required
+def create_object_post(request):
+    # TODO: backend
+    return render(request, 'objects/index.html')
+
+
+@login_required
+def create_lab(request):
+    return render(request, 'objects/create_lab.html')
+
+
+@login_required
+def create_lab_post(request):
+    # TODO: backend
+    return render(request, 'objects/labs_list.html')
+
+
+@login_required
 def object_detail(request, object_id):
     object = get_object_or_404(Object, pk=object_id)
     context = {
@@ -43,7 +65,7 @@ def sign_in(request):
             "name": request.user.email
 
         }
-        return render(request, 'auth/auth.html',context)
+        return render(request, 'auth/auth.html', context)
 
 
 def sign_up(request):
@@ -55,7 +77,8 @@ def try_sign_up(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     print(name, email, password)
-    user = User.objects.create_user(username=email, email=email, password=password)
+    user = User.objects.create_user(
+        username=email, email=email, password=password)
     user.save()
     return render(request, 'auth/sign_up.html')
 
@@ -69,7 +92,7 @@ def try_sign_in(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
 
-    user = authenticate(username=email, email=email, password= password)
+    user = authenticate(username=email, email=email, password=password)
     print(user)
     if user is not None:
         login(request, user)
@@ -101,7 +124,6 @@ def lab_search(request):
 @login_required
 def search_result(request):
 
-
     a = request.POST.get('search')
 
     object = get_object_or_404(Object, name=a)
@@ -117,4 +139,3 @@ def search_result(request):
 
 def research_list(request):
     return HttpResponseRedirect("/sign-in")
-

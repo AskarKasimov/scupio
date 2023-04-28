@@ -9,11 +9,14 @@
     <input type="submit" class="submit" value="Найти">
 </form>
 <div class="list">
- {% for lab in labs %}
+    <a href="/create-lab" class="sample-item">
+        <h3>Создать лабораторию</h3>
+    </a>
+    {% for lab in labs %}
     <a href="{{ lab.name }}" class="sample-item">
         <h3><span style="font-size: 16px;">№</span>{{ lab.name }}</h3>
-    {% endfor %}
     </a>
+    {% endfor %}
 </div>
 
 
