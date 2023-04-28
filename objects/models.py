@@ -44,8 +44,7 @@ class OilField(models.Model):
 
 # Лаборатория
 class Lab(models.Model):
-    #id = models.AutoField(primary_key=True)
-    name = models.IntegerField(verbose_name='Номер лаборатории')
+    name = models.IntegerField(verbose_name='Номер лаборатории', unique=True)
     address = models.CharField(max_length=200, verbose_name='Адрес лаборатории')
     def __str__(self) -> str:
         return str(self.name)
@@ -53,13 +52,13 @@ class Lab(models.Model):
 
 # Объект
 class Object(models.Model):
-    name = models.IntegerField(verbose_name='Номер объекта')
-    diameter = models.IntegerField(verbose_name='Диаметр(мм)')
-    water_value = models.IntegerField(verbose_name='Коэффициент водонасыщенности')
-    oil_value = models.IntegerField(verbose_name='Коэффициент нефтенасыщенности')
-    gas_value = models.IntegerField(verbose_name='Коэффициент газонасыщенности')
-    mineral_density = models.IntegerField(verbose_name='Минералогическая плотность')
-    carbon_coeff = models.IntegerField(verbose_name='Коэфициент карбонатности')
+    name = models.IntegerField(verbose_name='Номер объекта', unique=True)
+    diameter = models.FloatField(verbose_name='Диаметр(мм)')
+    water_value = models.FloatField(verbose_name='Коэффициент водонасыщенности')
+    oil_value = models.FloatField(verbose_name='Коэффициент нефтенасыщенности')
+    gas_value = models.FloatField(verbose_name='Коэффициент газонасыщенности')
+    mineral_density = models.FloatField(verbose_name='Минералогическая плотность')
+    carbon_coeff = models.FloatField(verbose_name='Коэфициент карбонатности')
     oilfield = models.ForeignKey(
         OilField,
         related_name='objects',
@@ -103,8 +102,8 @@ class LabObject(models.Model):
         verbose_name='Лаборатория',
         on_delete=models.CASCADE
     )
-    start_date = models.DateTimeField(verbose_name='Время старта работы')
-    end_date = models.DateTimeField(auto_now_add=True, verbose_name='Время конца работы')
+
+
     author = models.ForeignKey(
         User,
         related_name='lab_object',
@@ -112,12 +111,7 @@ class LabObject(models.Model):
         on_delete=models.CASCADE,  
         default = 1
     )
-    task = models.ForeignKey(
-        Task,
-        related_name='lab_object',
-        verbose_name='Исследование',
-        on_delete=models.CASCADE
-    )
+
 
     class Meta:
         ordering = ('-pk',)

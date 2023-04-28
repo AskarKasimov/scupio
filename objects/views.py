@@ -32,8 +32,28 @@ def create_object(request):
 
 @login_required
 def create_object_post(request):
-    # TODO: backend
-    return render(request, 'objects/index.html')
+    name = request.POST.get('number')
+    water = request.POST.get('water')
+    gaz = request.POST.get('gaz')
+    oil = request.POST.get('oil')
+    date_cr = request.POST.get('date-create')
+    date_spawn = request.POST.get('date-income')
+    carb = request.POST.get('carbon')
+    miner = request.POST.get('mineral')
+    rock = request.POST.get('rock')
+    lab = request.POST.get('lab')
+    diam = request.POST.get('diametr')
+    lab = get_object_or_404(Lab, name= lab)
+    link =  request.POST.get('link')
+    obj = Object(name= name, water_value=water, oil_value=oil, carbon_coeff=carb, mineral_density=miner, gas_value= gaz, link_verge3d= link, income_date= date_spawn, date_selection= date_cr, rock_name = rock, diameter= diam)
+    obj.save()
+    lab_obj = LabObject(object=obj, laboratory= lab)
+    lab_obj.save()
+    object1 = Object.objects.select_related().all()
+    context = {
+        'objects': object1,
+    }
+    return render(request, 'objects/index.html', context)
 
 
 @login_required
@@ -43,8 +63,15 @@ def create_lab(request):
 
 @login_required
 def create_lab_post(request):
-    # TODO: backend
-    return render(request, 'objects/labs_list.html')
+    name = request.POST.get('number')
+    address = request.POST.get('address')
+    lab = Lab(name= name, address=address)
+    lab.save()
+    labs = Lab.objects.select_related().distinct()
+    context = {
+        'labs': labs,
+    }
+    return render(request, 'objects/labs_list.html', context)
 
 
 @login_required
@@ -104,7 +131,6 @@ def try_sign_in(request):
 @login_required
 def lab_detail(request, lab_id):
     lab = get_object_or_404(Lab, name=lab_id)
-    print(lab)
     context = {
         'lab': lab
     }
