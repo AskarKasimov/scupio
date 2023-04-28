@@ -53,11 +53,41 @@
         <li>
             <input type="checkbox" checked>
             <i class="arrow"></i>
-            <h2><i class="fas fa-code"></i>Результаты</h2>
-            {% for task in tasks %}
-            <p>{{ task.task.result }}</p>      
-            {% endfor %}
+            <h2><i class="fas fa-code"></i>Коэффициент водонасыщенности</h2>
+            <p>{{ tasks.0.object.water_value }}</p>
         </li>
+        <li>
+            <input type="checkbox" checked>
+            <i class="arrow"></i>
+            <h2><i class="fas fa-code"></i>Коэффициент нефтенасыщенности</h2>
+            <p>{{ tasks.0.object.oil_value }}</p>
+        </li>
+        <li>
+            <input type="checkbox" checked>
+            <i class="arrow"></i>
+            <h2><i class="fas fa-code"></i>Коэффициент газонасыщенности</h2>
+            <p>{{ tasks.0.object.gas_value }}</p>
+        </li>
+        <li>
+            <input type="checkbox" checked>
+            <i class="arrow"></i>
+            <h2><i class="fas fa-code"></i>Диаметр</h2>
+            <p>{{ tasks.0.object.diameter }}</p>
+        </li>
+        <li>
+            <input type="checkbox" checked>
+            <i class="arrow"></i>
+            <h2><i class="fas fa-code"></i>Минеральная плотность</h2>
+            <p>{{ tasks.0.object.mineral_density }}</p>
+        </li>
+        <li>
+            <input type="checkbox" checked>
+            <i class="arrow"></i>
+            <h2><i class="fas fa-code"></i>Коэффициент карбонатности</h2>
+            <p>{{ tasks.0.object.carbon_coeff }}</p>
+        </li>
+
+
     </ul>
 </div>
 

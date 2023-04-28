@@ -54,6 +54,12 @@ class Lab(models.Model):
 # Объект
 class Object(models.Model):
     name = models.IntegerField(verbose_name='Номер объекта')
+    diameter = models.IntegerField(verbose_name='Диаметр(мм)')
+    water_value = models.IntegerField(verbose_name='Коэффициент водонасыщенности')
+    oil_value = models.IntegerField(verbose_name='Коэффициент нефтенасыщенности')
+    gas_value = models.IntegerField(verbose_name='Коэффициент газонасыщенности')
+    mineral_density = models.IntegerField(verbose_name='Минералогическая плотность')
+    carbon_coeff = models.IntegerField(verbose_name='Коэфициент карбонатности')
     oilfield = models.ForeignKey(
         OilField,
         related_name='objects',
